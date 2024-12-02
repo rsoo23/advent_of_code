@@ -1,31 +1,11 @@
 
-# 1. reads the input file and places levels into the report_levels list
-# 2. iterates through the report_levels list and checks if the report is safe and within the constraints
-# 3. add the total number of safe reports
+from part_1 import is_report_safe
 
-# Solution: 282
+# Problem Dampener:
+# If a report is not safe, remove one of the levels and check if the report is safe
+# Try removing one level until the report is safe or all elements have been removed
 
-def is_report_safe(levels):
-    is_decreasing = False
-    is_increasing = False
-    max_index = len(levels) - 1
-
-    for i in range(max_index):
-        diff = int(levels[i + 1]) - int(levels[i])
-
-        if diff > 0:
-            is_increasing = True
-        else:
-            is_decreasing = True
-
-        if is_decreasing and is_increasing:
-            return False
-
-        abs_diff = abs(diff)
-
-        if abs_diff < 1 or abs_diff > 3:
-            return False
-    return True
+# Solution: 349
 
 def main():
     file = open("./input.txt")
@@ -38,6 +18,16 @@ def main():
 
         if result == True:
             safe_reports += 1
+        else:
+            # Problem Dampener
+            for i in range(len(report_levels)):
+                copy_report_levels = report_levels.copy()
+                copy_report_levels.pop(i)
+                result = is_report_safe(copy_report_levels)
+
+                if result == True:
+                    safe_reports += 1
+                    break
 
     print(safe_reports)
 
