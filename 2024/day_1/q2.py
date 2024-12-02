@@ -3,11 +3,7 @@
 # 2. iterates through second_numbers array to find the frequency of each number
 # 3. iterates through first_numbers array to calculate the product, adding it to the variable similiarity_score cumulatively
 
-# Solution: 1603498
-
-first_numbers = []
-second_numbers = []
-
+# Solution: 25574739
 
 first_numbers = []
 second_numbers = []
