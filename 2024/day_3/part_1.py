@@ -1,7 +1,9 @@
 
-# 1. extract all patterns that have mul(\d, \d)
+# 1. extract all patterns that have mul(\d,\d)
 # 2. extract both numbers and multiply
 # 3. sum product
+
+# Solution: 18023322
 
 import re
 
